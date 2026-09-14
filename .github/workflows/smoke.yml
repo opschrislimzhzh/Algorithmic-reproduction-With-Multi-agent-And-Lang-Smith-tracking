@@ -1,0 +1,19 @@
+name: smoke
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  syntax:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+      - run: pip install -r requirements.txt
+      - run: python -m py_compile runtime/p2c_runtime.py tools/patch_upstream.py scripts/doctor.py
+      - run: |
+          test ! -f .env
+          echo "Smoke checks passed."

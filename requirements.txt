@@ -1,0 +1,8 @@
+# Lean requirements for the OpenAI-compatible API path + LangSmith.
+openai>=1.65.4,<3
+langsmith>=0.11.0,<1
+python-dotenv>=1.0.1,<2
+tiktoken>=0.9.0,<1
+tqdm>=4.66,<5
+PyYAML>=6.0,<7
+huggingface-hub>=0.23,<2

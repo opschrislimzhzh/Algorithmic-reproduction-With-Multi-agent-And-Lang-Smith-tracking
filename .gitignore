@@ -1,0 +1,24 @@
+.env
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.so
+.pytest_cache/
+.mypy_cache/
+.DS_Store
+
+# Nested checkout metadata
+paper2code_src/.git/
+
+# Generated artifacts
+paper2code_src/outputs/
+paper2code_src/results/
+paper2code_src/**/accumulated_cost.json
+paper2code_src/**/*.bak
+results/
+outputs/
+
+# Never commit secrets
+*.key
+*.pem

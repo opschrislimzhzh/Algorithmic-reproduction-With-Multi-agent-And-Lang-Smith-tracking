@@ -1,0 +1,4 @@
+-r requirements.txt
+# Optional: only needed for upstream local/open-source model scripts.
+transformers>=4.46.3
+vllm>=0.6.4.post1
