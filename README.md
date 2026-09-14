@@ -15,8 +15,35 @@ The project provides:
 
 The upstream open-source components used in this project are distributed under the Apache-2.0 License. The project uses `bootstrap.sh` to obtain the required upstream source code and automatically applies the interface adaptations required by the current system.
 
+## Environment
+
+The project is developed and tested under **WSL2 + Ubuntu**.
+
+Recommended environment:
+
+- Windows 10/11 with WSL2
+- Ubuntu 22.04+ / 24.04+
+- Python 3.10+
+- Git
+- Bash
+
+Native Linux environments can also be used directly.
+
+For Windows users, **WSL2 with Ubuntu is recommended**, since the project
+uses Bash scripts for initialization, execution, debugging, and evaluation.
+
+The main tested environment is:
+
+```text
+Windows
+└── WSL2
+    └── Ubuntu
+        ├── Python 3.10+
+        ├── Qwen / DashScope API
+        └── LangSmith
 ## Getting Started
 
+The following commands should be executed inside the WSL/Linux terminal.
 Python 3.10+ is recommended.
 
 ```bash
