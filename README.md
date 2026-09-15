@@ -61,67 +61,18 @@ GENERATED_N=1 bash scripts/eval_qwen.sh
 GENERATED_N=8 bash scripts/eval_qwen.sh
 ```
 
-## 上传 GitHub
 
-### 方式 A：推荐，仓库更小
-
-直接上传本包装仓库。其他人 clone 后运行：
-
-```bash
-bash scripts/bootstrap.sh
-```
-
-### 方式 B：把上游源码也一起上传
-
-在上传前运行：
-
-```bash
-bash scripts/vendor_for_github.sh
-```
-
-它会拉取上游代码、打补丁，并移除嵌套 `.git`。然后：
-
-```bash
-git init
-git add .
-git commit -m "Paper2Code reproducible Qwen + LangSmith setup"
-git branch -M main
-git remote add origin <YOUR_GITHUB_REPO>
-git push -u origin main
-```
 
 ## 接口简化
 
-原本多个文件分别写：
 
-```python
-client = OpenAI(...)
-```
-
-现在统一为：
 
 ```python
 from p2c_runtime import get_client
 client = get_client()
 ```
 
-换 Qwen / OpenAI / 其他 OpenAI-compatible API 时只改 `.env`。
+换 OpenAI / Qwen / 其他 OpenAI-compatible API 时只改 `.env`。
 
 LangSmith 同理，开关 tracing 不再需要逐个修改 Agent。
 
-## 安全
-
-不要上传 `.env`。此前如果 API key 曾出现在聊天或日志里，建议先轮换
-DashScope 和 LangSmith key，再上传 GitHub。
-
-提交前可检查：
-
-```bash
-git status
-git grep -nE 'sk-[A-Za-z0-9_-]{10,}|lsv2_[A-Za-z0-9_-]{10,}' || true
-```
-
-## 上游
-
-Paper2Code: Automating Code Generation from Scientific Papers in Machine Learning  
-Upstream: going-doer/Paper2Code
